@@ -1,0 +1,192 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/img/240_F_396734368_Y5j7nPRThvj9asckhKcphvk3MG9Pu2bI.jpg'); /* Relative path to the image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+  tr:hover {
+        transform: scale(1.01);
+    }
+
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+    .pagination li {
+        list-style: none;
+        margin-right: 10px;
+    }
+
+        
+
+    .pagination a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        border: 1px solid #007bff;
+    }
+
+    .pagination .active a {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .pagination a:hover {
+        background-color: rgba(0, 123, 255, 0.7);
+        color: #fff;
+    }
+
+
+
+
+
+
+
+
+
+
+
+.detailscontainer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 600px;
+    transition: background-color 0.3s, transform 0.99s ease-in-out;
+}
+    .detailscontainer:hover {
+        background-color: white;
+        transform: scale(1.1);
+    }
+
+.deletcontainer{}
+
+.deletcontainer:hover {
+    background-color: rgb(255, 230, 230);
+    
+}
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.col-sm-2 {
+    font-weight: bold;
+}
+
+.col-sm-10 {
+    margin-bottom: 10px;
+}
+
+dt {
+    color: #007bff;
+}
+
+dd {
+    color: #333;
+}
+
+.expired {
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.valid {
+    background-color: green;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+.product-title {
+    font-size: 24px;
+    color: #ff5733; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: bold; 
+}

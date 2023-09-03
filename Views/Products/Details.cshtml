@@ -1,0 +1,60 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="detailscontainer">
+    <h1 >Details</h1>
+
+<div>
+    <h4 class="product-title">Product</h4>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" style="float:right" class="btn btn-warning">Edit</a>
+        <br/>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StockQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StockQuantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+        <dd class="col-sm-10">
+            
+            @if (Model.ExpirationDate < DateTime.Now)
+            {
+                    <span class="badge expired">@Model.ExpirationDate.ToString("dd-MM-yyyy")  Expired</span>
+            }
+            else
+            {
+                    <span class="badge valid">@Model.ExpirationDate.ToString("dd-MM-yyyy")       Valid</span>
+            }
+        </dd>
+    </dl>
+        <a asp-action="Index" style="float:right" class="btn btn-primary">Back to List</a>
+        <br/>
+</div>
+</div>
