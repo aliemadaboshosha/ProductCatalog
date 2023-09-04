@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using a_product_catalog.Data;
 using a_product_catalog.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace a_product_catalog.Controllers
 {
@@ -19,9 +20,10 @@ namespace a_product_catalog.Controllers
             _context = context;
         }
 
+
+
+        [AllowAnonymous]
         
-
-
         public async Task<IActionResult> Index(int? page)
         {
             int pageSize = 10; // Number of products to display per page
@@ -56,6 +58,8 @@ namespace a_product_catalog.Controllers
 
 
         // GET: Products/Details/5
+
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
@@ -73,6 +77,10 @@ namespace a_product_catalog.Controllers
             return View(product);
         }
 
+        #region Create
+
+
+        [Authorize(Roles ="Admin")]
         #region GET: Products/Create
         public IActionResult Create()
         {
@@ -80,7 +88,7 @@ namespace a_product_catalog.Controllers
         }
         #endregion
 
-#region POST: Products/Create
+        #region POST: Products/Create
 
         [HttpPost]
         
@@ -95,6 +103,11 @@ namespace a_product_catalog.Controllers
             return View(product);
         }
         #endregion
+
+        #endregion
+
+
+        [Authorize(Roles = "Admin,StockWorker")]
 
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -114,8 +127,7 @@ namespace a_product_catalog.Controllers
         }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,StockQuantity,ExpirationDate")] Product product)
@@ -142,6 +154,8 @@ namespace a_product_catalog.Controllers
         #region delete
 
         #region GET: Products/Delete
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)

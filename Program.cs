@@ -1,5 +1,6 @@
 using a_product_catalog.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<ProductDbContext>(o => {
     o.UseSqlServer(builder.Configuration.GetConnectionString("ProductDB"));
 }
 );
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ProductDbContext>();
 
 var app = builder.Build();
 
@@ -30,5 +35,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=products}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints=>endpoints.MapRazorPages());
 
 app.Run();

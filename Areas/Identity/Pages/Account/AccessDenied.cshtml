@@ -1,0 +1,13 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+}
+<div class="detailscontainer deletcontainer">
+<header>
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="text-danger" >You do not have access to this resource.</p>
+</header>
+    <a asp-controller="products" asp-action="Index" style="float:right" class="btn btn-primary">Back to List</a>
+    </br>
+</div>
